@@ -1,7 +1,7 @@
 % \iffalse meta-comment
 %
 % File: transparent.dtx
-% Version: 2018/11/18 v1.3
+% Version: 2019/12/15 v1.4
 % Info: Transparency via pdfTeX's color stack
 %
 % Copyright (C)
@@ -81,7 +81,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: transparent 2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)}
+\Msg{* Package: transparent 2019/12/15 v1.4 Transparency via pdfTeX's color stack (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -93,7 +93,7 @@
 This is a generated file.
 
 Project: transparent
-Version: 2018/11/18 v1.3
+Version: 2019/12/15 v1.4
 
 Copyright (C)
    2007 Heiko Oberdiek
@@ -161,7 +161,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{transparent.drv}%
-  [2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)]%
+  [2019/12/15 v1.4 Transparency via pdfTeX's color stack (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -190,7 +190,7 @@ and the derived files
 % \GetFileInfo{transparent.drv}
 %
 % \title{The \xpackage{transparent} package}
-% \date{2018/11/18 v1.3}
+% \date{2019/12/15 v1.4}
 % \author{Heiko Oberdiek\thanks
 % {Please report any issues at \url{https://github.com/ho-tex/oberdiek/issues}}}
 %
@@ -249,14 +249,14 @@ Hello World
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{transparent}%
-  [2018/11/18 v1.3 Transparency via pdfTeX's color stack (HO)]%
+  [2019/12/15 v1.4 Transparency via pdfTeX's color stack (HO)]%
 %    \end{macrocode}
 %
 % \subsection{Initial checks}
 %
 % \subsubsection{Check for \pdfTeX\ in PDF mode}
 %    \begin{macrocode}
-\RequirePackage{ifpdf}
+\RequirePackage{iftex}
 \ifpdf
 \else
   \PackageWarningNoLine{transparent}{%
@@ -597,6 +597,12 @@ Hello World
 %   \begin{Version}{2018/11/18 v1.3}
 %   \item
 %     Added code for pgf compatibility, see https://github.com/ho-tex/oberdiek/issues/19
+%   \end{Version}
+%   \begin{Version}{2019/12/15 v1.4}
+%   \item
+%     Documentation updates.
+% \item
+% Use \xpackage{iftex} package.
 %   \end{Version}
 % \end{History}
 %

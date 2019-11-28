@@ -5,17 +5,21 @@ module = "transparent"
 
 textfiles = {"README.md"}
 unpackfiles = {'transparent.dtx'}
-sourcefiles={"*.dtx"}
-installfiles={"*.sty","*.lua"}
+sourcefiles={"*.dtx","*.tex"}
+installfiles={"*.sty","*.lua","*.tex"}
 scriptfiles={"*.lua"}
+docfiles={"*.tex"}
 
-checkconfigs = {"build","config-plain", "config-noxetex","config-luatex","config-pdftex"}
+checkconfigs = {"config-noxetex"}
  
 packtdszip  = true
 
 maxprintline=10000
 checkruns = 2
 
+tdslocations={
+"doc/latex/oberdiek/transparent-example.tex"
+}
 
 
 function update_tag(file,content,tagname,tagdate)

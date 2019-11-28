@@ -7,7 +7,7 @@
 % Copyright (C)
 %    2007 Heiko Oberdiek
 %    2016-2019 Oberdiek Package Support Group 2018
-%    https://github.com/ho-tex/oberdiek/issues
+%    https://github.com/ho-tex/transparent/issues
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License, either
@@ -23,7 +23,7 @@
 %
 % The Current Maintainers of this work are
 % Heiko Oberdiek and the Oberdiek Package Support Group
-% https://github.com/ho-tex/oberdiek/issues
+% https://github.com/ho-tex/transparent/issues
 %
 % This work consists of the main source file transparent.dtx
 % and the derived files
@@ -31,8 +31,8 @@
 %    transparent-example.tex.
 %
 % Distribution:
-%    CTAN:macros/latex/contrib/oberdiek/transparent.dtx
-%    CTAN:macros/latex/contrib/oberdiek/transparent.pdf
+%    CTAN:macros/latex/contrib/transparent/transparent.dtx
+%    CTAN:macros/latex/contrib/transparent/transparent.pdf
 %
 % Unpacking:
 %    (a) If transparent.ins is present:
@@ -61,10 +61,9 @@
 %       pdflatex transparent.dtx
 %
 % Installation:
-%    TDS:tex/latex/oberdiek/transparent.sty
-%    TDS:doc/latex/oberdiek/transparent.pdf
-%    TDS:doc/latex/oberdiek/transparent-example.tex
-%    TDS:source/latex/oberdiek/transparent.dtx
+%    TDS:tex/latex/transparent/transparent.sty
+%    TDS:doc/latex/transparent/transparent.pdf
+%    TDS:source/latex/transparent/transparent.dtx
 %
 %<*ignore>
 \begingroup
@@ -113,7 +112,7 @@ This work has the LPPL maintenance status "maintained".
 
 The Current Maintainers of this work are
 Heiko Oberdiek and the Oberdiek Package Support Group
-https://github.com/ho-tex/oberdiek/issues
+https://github.com/ho-tex/transparent/issues
 
 
 This work consists of the main source file transparent.dtx
@@ -127,13 +126,13 @@ and the derived files
 \generate{%
   \file{transparent.ins}{\from{transparent.dtx}{install}}%
   \file{transparent.drv}{\from{transparent.dtx}{driver}}%
-  \usedir{tex/latex/oberdiek}%
+  \usedir{tex/latex/transparent}%
   \file{transparent.sty}{\from{transparent.dtx}{package}}%
-  \usedir{doc/latex/oberdiek}%
+  \usedir{doc/latex/transparent}%
   \file{transparent-example.tex}{\from{transparent.dtx}{example}}%
   \nopreamble
   \nopostamble
-%  \usedir{source/latex/oberdiek/catalogue}%
+%  \usedir{source/latex/transparent/catalogue}%
 %  \file{transparent.xml}{\from{transparent.dtx}{catalogue}}%
 }
 
@@ -192,7 +191,7 @@ and the derived files
 % \title{The \xpackage{transparent} package}
 % \date{2019/12/15 v1.4}
 % \author{Heiko Oberdiek\thanks
-% {Please report any issues at \url{https://github.com/ho-tex/oberdiek/issues}}}
+% {Please report any issues at \url{https://github.com/ho-tex/transparent/issues}}}
 %
 % \maketitle
 %
@@ -289,7 +288,7 @@ Hello World
 %    \end{macrocode}
 %
 % \subsection{Compatibility with pgf}
-%  https://github.com/ho-tex/oberdiek/issues/19
+%  https://github.com/ho-tex/transparent/issues/1
 %    \begin{macrocode}
 \AtBeginDocument
  {%
@@ -428,17 +427,17 @@ Hello World
 % \paragraph{Package.} This package is available on
 % CTAN\footnote{\CTANpkg{transparent}}:
 % \begin{description}
-% \item[\CTAN{macros/latex/contrib/oberdiek/transparent.dtx}] The source file.
-% \item[\CTAN{macros/latex/contrib/oberdiek/transparent.pdf}] Documentation.
+% \item[\CTAN{macros/latex/contrib/transparent/transparent.dtx}] The source file.
+% \item[\CTAN{macros/latex/contrib/transparent/transparent.pdf}] Documentation.
 % \end{description}
 %
 %
-% \paragraph{Bundle.} All the packages of the bundle `oberdiek'
+% \paragraph{Bundle.} All the packages of the bundle `transparent'
 % are also available in a TDS compliant ZIP archive. There
 % the packages are already unpacked and the documentation files
 % are generated. The files and directories obey the TDS standard.
 % \begin{description}
-% \item[\CTANinstall{install/macros/latex/contrib/oberdiek.tds.zip}]
+% \item[\CTANinstall{install/macros/latex/contrib/transparent.tds.zip}]
 % \end{description}
 % \emph{TDS} refers to the standard ``A Directory Structure
 % for \TeX\ Files'' (\CTAN{tds/tds.pdf}). Directories
@@ -446,11 +445,11 @@ Hello World
 %
 % \subsection{Bundle installation}
 %
-% \paragraph{Unpacking.} Unpack the \xfile{oberdiek.tds.zip} in the
+% \paragraph{Unpacking.} Unpack the \xfile{transparent.tds.zip} in the
 % TDS tree (also known as \xfile{texmf} tree) of your choice.
 % Example (linux):
 % \begin{quote}
-%   |unzip oberdiek.tds.zip -d ~/texmf|
+%   |unzip transparent.tds.zip -d ~/texmf|
 % \end{quote}
 %
 % \subsection{Package installation}
@@ -468,10 +467,10 @@ Hello World
 % \begin{quote}
 % \def\t{^^A
 % \begin{tabular}{@{}>{\ttfamily}l@{ $\rightarrow$ }>{\ttfamily}l@{}}
-%   transparent.sty & tex/latex/oberdiek/transparent.sty\\
-%   transparent.pdf & doc/latex/oberdiek/transparent.pdf\\
-%   transparent-example.tex & doc/latex/oberdiek/transparent-example.tex\\
-%   transparent.dtx & source/latex/oberdiek/transparent.dtx\\
+%   transparent.sty & tex/latex/transparent/transparent.sty\\
+%   transparent.pdf & doc/latex/transparent/transparent.pdf\\
+%   transparent-example.tex & doc/latex/transparent/transparent-example.tex\\
+%   transparent.dtx & source/latex/transparent/transparent.dtx\\
 % \end{tabular}^^A
 % }^^A
 % \sbox0{\t}^^A
@@ -596,7 +595,7 @@ Hello World
 %   \end{Version}
 %   \begin{Version}{2018/11/18 v1.3}
 %   \item
-%     Added code for pgf compatibility, see https://github.com/ho-tex/oberdiek/issues/19
+%     Added code for pgf compatibility, see https://github.com/ho-tex/transparent/issues/1
 %   \end{Version}
 %   \begin{Version}{2019/12/15 v1.4}
 %   \item

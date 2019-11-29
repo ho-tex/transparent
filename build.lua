@@ -18,7 +18,7 @@ maxprintline=10000
 checkruns = 2
 
 tdslocations={
-"doc/latex/oberdiek/transparent-example.tex"
+"doc/latex/transparent/transparent-example.tex"
 }
 
 

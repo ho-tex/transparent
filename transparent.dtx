@@ -1,12 +1,12 @@
 % \iffalse meta-comment
 %
 % File: transparent.dtx
-% Version: 2019/11/29 v1.4
+% Version: 2022-10-27 v1.5
 % Info: Transparency via pdfTeX's color stack
 %
 % Copyright (C)
 %    2007 Heiko Oberdiek
-%    2016-2019 Oberdiek Package Support Group 2018
+%    2016-2022 Oberdiek Package Support Group 2018
 %    https://github.com/ho-tex/transparent/issues
 %
 % This work may be distributed and/or modified under the
@@ -80,7 +80,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: transparent 2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)}
+\Msg{* Package: transparent 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -92,11 +92,11 @@
 This is a generated file.
 
 Project: transparent
-Version: 2019/11/29 v1.4
+Version: 2022-10-27 v1.5
 
 Copyright (C)
    2007 Heiko Oberdiek
-   2016-2019 Oberdiek Package Support Group
+   2016-2022 Oberdiek Package Support Group
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -127,7 +127,8 @@ and the derived files
   \file{transparent.ins}{\from{transparent.dtx}{install}}%
   \file{transparent.drv}{\from{transparent.dtx}{driver}}%
   \usedir{tex/latex/transparent}%
-  \file{transparent.sty}{\from{transparent.dtx}{package}}%
+  \file{transparent-nometadata.sty}{\from{transparent.dtx}{package}}%
+  \file{transparent.sty}{\from{transparent.dtx}{package-new}}%
   \usedir{doc/latex/transparent}%
   \file{transparent-example.tex}{\from{transparent.dtx}{example}}%
 }
@@ -156,7 +157,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{transparent.drv}%
-  [2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)]%
+  [2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -170,16 +171,16 @@ and the derived files
 % \GetFileInfo{transparent.drv}
 %
 % \title{The \xpackage{transparent} package}
-% \date{2019/11/29 v1.4}
+% \date{2022-10-27 v1.5}
 % \author{Heiko Oberdiek\thanks
 % {Please report any issues at \url{https://github.com/ho-tex/transparent/issues}}}
 %
 % \maketitle
 %
 % \begin{abstract}
-% Since version 1.40 \pdfTeX\ supports several color stacks. This
+% \pdfTeX\ and lua\TeX{} supports several color stacks. This
 % package shows, how a separate color stack can be used for transparency,
-% a property besides color.
+% a property besides color, that also works across page break.
 % \end{abstract}
 %
 % \tableofcontents
@@ -188,12 +189,23 @@ and the derived files
 %
 % The package \xpackage{transparent} defines \cs{transparent} and
 % \cs{texttransparent}. They are used like \cs{color} and \cs{textcolor}.
-% The first argument is the transparency value between 0 and 1.
+% The first argument is the transparency value between 0 and 1 where 0
+% is fully transparent and 1 is opaque.
+% 
+% \section{Engine support}
+% If the PDF management is loaded by using \verb+\DocumentMetadata{}+ at the begin
+% of the document the package makes use of \texttt{l3opacity} and
+% can be used with all engines supported by \texttt{l3backend}.
+% But only with \pdfTeX\ and lua\TeX{} the transparency will also work across page break.
+% 
+% 
+% Without the PDF management the package works only with \pdfTeX\ and lua\TeX{}.
+% It then uses the original code by Heiko Oberdiek. It then uses the
+% primitive \cs{pdfpageresources} and can clash with other packages using
+% \cs{pdfpageresources} too.
+% 
 %
-% Because of the poor interface for page resources, there can be problems
-% with packages that also use \cs{pdfpageresources}.
-%
-% Example for usage:
+% \section{Example for usage}
 %    \begin{macrocode}
 %<*example>
 \documentclass[12pt]{article}
@@ -222,14 +234,47 @@ Hello World
 % }
 %
 % \section{Implementation}
-%
-% \subsection{Identification}
-%
+% \subsection{New version using the methods of the PDF management} 
+% Identification
+%    \begin{macrocode}
+%<*package-new>
+\NeedsTeXFormat{LaTeX2e}[2020/10/01]
+\ProvidesExplPackage{transparent}{2022-10-27}{1.5}
+  {Transparency with color stacks}%
+%    \end{macrocode}
+% Testing if the pdfmanagement is used
+%    \begin{macrocode}
+\@ifl@t@r\fmtversion{2022-06-01}
+  {
+    \IfDocumentMetadataTF {}{\RequirePackage{transparent-nometadata}}
+    \IfDocumentMetadataTF {}{\endinput}
+  }
+  {\RequirePackage{transparent-nometadata}}  
+%    \end{macrocode}
+%    \begin{macrocode}
+\RequirePackage{l3opacity}
+
+\NewDocumentCommand{\transparent} { m }
+      {
+       \opacity_select:n{\fp_eval:n{ min(max(0,#1),1) } }
+      }
+
+\NewDocumentCommand{\texttransparent}{m m}
+  {
+   \mode_leave_vertical:
+   \group_begin:
+     \transparent{#1}
+     #2
+   \group_end:
+  }
+%</package-new>
+%    \end{macrocode}
+% \subsection{Old version without the PDF management}
 %    \begin{macrocode}
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{transparent}%
-  [2019/11/29 v1.4 Transparency via pdfTeX's color stack (HO)]%
+\ProvidesPackage{transparent-nometadata}%
+  [2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)]%
 %    \end{macrocode}
 %
 % \subsection{Initial checks}
@@ -413,25 +458,6 @@ Hello World
 % \end{description}
 %
 %
-% \paragraph{Bundle.} All the packages of the bundle `transparent'
-% are also available in a TDS compliant ZIP archive. There
-% the packages are already unpacked and the documentation files
-% are generated. The files and directories obey the TDS standard.
-% \begin{description}
-% \item[\CTANinstall{install/macros/latex/contrib/transparent.tds.zip}]
-% \end{description}
-% \emph{TDS} refers to the standard ``A Directory Structure
-% for \TeX\ Files'' (\CTANpkg{tds}). Directories
-% with \xfile{texmf} in their name are usually organized this way.
-%
-% \subsection{Bundle installation}
-%
-% \paragraph{Unpacking.} Unpack the \xfile{transparent.tds.zip} in the
-% TDS tree (also known as \xfile{texmf} tree) of your choice.
-% Example (linux):
-% \begin{quote}
-%   |unzip transparent.tds.zip -d ~/texmf|
-% \end{quote}
 %
 % \subsection{Package installation}
 %
@@ -449,6 +475,7 @@ Hello World
 % \def\t{^^A
 % \begin{tabular}{@{}>{\ttfamily}l@{ $\rightarrow$ }>{\ttfamily}l@{}}
 %   transparent.sty & tex/latex/transparent/transparent.sty\\
+%   transparent-nometadata.sty & tex/latex/transparent/transparent-nometadata.sty\\   
 %   transparent.pdf & doc/latex/transparent/transparent.pdf\\
 %   transparent-example.tex & doc/latex/transparent/transparent-example.tex\\
 %   transparent.dtx & source/latex/transparent/transparent.dtx\\
@@ -583,6 +610,9 @@ Hello World
 %     Documentation updates.
 % \item
 % Use \xpackage{iftex} package.
+%   \end{Version}
+%   \begin{Version}{2022-10-27 v1.5}
+%   \item Made the package compatible with the PDF management.
 %   \end{Version}
 % \end{History}
 %

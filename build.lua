@@ -12,7 +12,7 @@ docfiles={"*.tex"}
 
 checkconfigs = {"config-noxetex"}
  
-packtdszip  = true
+
 
 maxprintline=10000
 checkruns = 2

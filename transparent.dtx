@@ -195,16 +195,16 @@ and the derived files
 % is fully transparent and 1 is opaque.
 % 
 % \section{Engine support}
-% If the PDF management is loaded by using \verb+\DocumentMetadata{}+ at the begin
+% If the PDF management is loaded by using \verb+\DocumentMetadata{}+ at the beginning
 % of the document the package makes use of \texttt{l3opacity} and
 % can be used with all engines supported by \texttt{l3backend}.
 % But only with \pdfTeX\ and lua\TeX{} the transparency will also work across page break.
 % 
 % 
-% Without the PDF management the package works only with \pdfTeX\ and lua\TeX{}.
+% Without the PDF management, the package works only with \pdfTeX\ and lua\TeX{}.
 % It then uses the original code by Heiko Oberdiek. It then uses the
-% primitive \cs{pdfpageresources} and can clash with other packages using
-% \cs{pdfpageresources} too.
+% primitive \cs{pdfpageresources} and can clash with other packages that also use
+% \cs{pdfpageresources}.
 % 
 %
 % \section{Example for usage}

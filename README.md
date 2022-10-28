@@ -14,7 +14,7 @@ but without support for page breaks.
 % Copyright (C)
 %    2007 Heiko Oberdiek
 %    2016-2022 Oberdiek Package Support Group
-%    https://github.com/ho-tex/hopatch/issues
+%    https://github.com/ho-tex/transparent/issues
 
 
 ## License

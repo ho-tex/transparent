@@ -1,8 +1,6 @@
-# transparent
+# transparent package for LaTeX
 
 Version: 2022-10-27 v1.5
-
-transparent package for LaTeX
 
 pdfTeX and luatex supports several color stacks. This
 package shows, how a separate color stack can be used for transparency,

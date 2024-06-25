@@ -13,6 +13,7 @@ but without support for page breaks.
 *    2007 Heiko Oberdiek
 *    2016-2024 Oberdiek Package Support Group
 
+
 ## Issues
 
 <https://github.com/ho-tex/transparent/issues>
@@ -20,5 +21,3 @@ but without support for page breaks.
 
 ## License
 LATEX Project Public License, version 1.3c or later.
-
-

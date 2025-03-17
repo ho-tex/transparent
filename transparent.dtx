@@ -1,12 +1,12 @@
 % \iffalse meta-comment
 %
 % File: transparent.dtx
-% Version: 2022-10-27 v1.5
+% Version: 2025-03-17 v1.6
 % Info: Transparency via pdfTeX's color stack
 %
 % Copyright (C)
 %    2007 Heiko Oberdiek
-%    2016-2022 Oberdiek Package Support Group 2018
+%    2016-2025 Oberdiek Package Support Group 
 %    https://github.com/ho-tex/transparent/issues
 %
 % This work may be distributed and/or modified under the
@@ -81,7 +81,7 @@
 \input docstrip.tex
 \Msg{************************************************************************}
 \Msg{* Installation}
-\Msg{* Package: transparent 2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)}
+\Msg{* Package: transparent 2025-03-17 v1.6 Transparency via pdfTeX's color stack (HO)}
 \Msg{************************************************************************}
 
 \keepsilent
@@ -93,11 +93,11 @@
 This is a generated file.
 
 Project: transparent
-Version: 2022-10-27 v1.5
+Version: 2025-03-17 v1.6
 
 Copyright (C)
    2007 Heiko Oberdiek
-   2016-2022 Oberdiek Package Support Group
+   2016-2025 Oberdiek Package Support Group
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either
@@ -159,7 +159,7 @@ and the derived files
 %<*driver>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesFile{transparent.drv}%
-  [2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)]%
+  [2025-03-17 v1.6 Transparency via pdfTeX's color stack (HO)]%
 \documentclass{ltxdoc}
 \usepackage{holtxdoc}[2011/11/22]
 \begin{document}
@@ -173,7 +173,7 @@ and the derived files
 % \GetFileInfo{transparent.drv}
 %
 % \title{The \xpackage{transparent} package}
-% \date{2022-10-27 v1.5}
+% \date{2025-03-17 v1.6}
 % \author{Heiko Oberdiek\thanks
 % {Please report any issues at \url{https://github.com/ho-tex/transparent/issues}}}
 %
@@ -241,7 +241,7 @@ Hello World
 %    \begin{macrocode}
 %<*package-new>
 \NeedsTeXFormat{LaTeX2e}[2020/10/01]
-\ProvidesExplPackage{transparent}{2022-10-27}{1.5}
+\ProvidesExplPackage{transparent}{2025-03-17}{1.6}
   {Transparency with color stacks}%
 %    \end{macrocode}
 % Testing if the pdfmanagement is used
@@ -254,7 +254,10 @@ Hello World
   {\RequirePackage{transparent-nometadata}}  
 %    \end{macrocode}
 %    \begin{macrocode}
-\RequirePackage{l3opacity}
+\cs_if_exist:NF \opacity_select:n
+ {
+   \RequirePackage{l3opacity}
+ }  
 
 \NewDocumentCommand{\transparent} { m }
       {
@@ -276,7 +279,7 @@ Hello World
 %<*package>
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{transparent-nometadata}%
-  [2022-10-27 v1.5 Transparency via pdfTeX's color stack (HO)]%
+  [2025-03-17 v1.6 Transparency via pdfTeX's color stack (HO)]%
 %    \end{macrocode}
 %
 % \subsection{Initial checks}
@@ -615,6 +618,9 @@ Hello World
 %   \end{Version}
 %   \begin{Version}{2022-10-27 v1.5}
 %   \item Made the package compatible with the PDF management.
+%   \end{Version}
+%   \begin{Version}{2025-03-17 v1.6}
+%   \item Prepare for move of l3opacity into l3kernel
 %   \end{Version}
 % \end{History}
 %

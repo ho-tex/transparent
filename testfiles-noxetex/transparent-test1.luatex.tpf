@@ -1,4 +1,4 @@
-%PDF-1.5
+%PDF-1.7
 %Ã’¡‘≈ÿ–ƒ∆
 3 0 obj
 << /Length 223 >>        
@@ -35,7 +35,7 @@ endobj
 << /Type /FontDescriptor /FontName /GCFJQZ+LMRoman10-Regular /Flags 4 /FontBBox [ -430 -290 1417 1127 ] /Ascent 1127 /CapHeight 683 /Descent -290 /ItalicAngle 0 /StemV 93 /XHeight 431 /FontFile3 9 0 R /CIDSet 8 0 R >>
 endobj
 10 0 obj
-<< /Length 833 >>        
+<< /Length 807 >>        
 stream
 %!PS-Adobe-3.0 Resource-CMap
 %%DocumentNeededResources: ProcSet (CIDInit)
@@ -57,8 +57,6 @@ begincmap
 1 begincodespacerange
 <0000> <FFFF>
 endcodespacerange
-0 beginbfrange
-endbfrange
 11 beginbfchar
 <001C> <0061>
 <0023> <0062>
@@ -101,18 +99,18 @@ xref
 0000000415 00000 n 
 0000000302 00000 n 
 0000000020 00000 n 
-0000003727 00000 n 
-0000004078 00000 n 
+0000003701 00000 n 
+0000004052 00000 n 
 0000000539 00000 n 
 0000002601 00000 n 
 0000000673 00000 n 
 0000000747 00000 n 
 0000002834 00000 n 
-0000003880 00000 n 
-0000004138 00000 n 
-0000004188 00000 n 
+0000003854 00000 n 
+0000004112 00000 n 
+0000004162 00000 n 
 trailer
 << /Size 14 /Root 12 0 R /Info 13 0 R >>
 startxref
-4260
+4234
 %%EOF

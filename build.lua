@@ -21,6 +21,7 @@ tdslocations={
 "doc/latex/transparent/transparent-example.tex"
 }
 
+recordstatus=true
 
 function update_tag(file,content,tagname,tagdate)
 

@@ -1,6 +1,6 @@
 # transparent package for LaTeX
 
-Version: 2022-10-27 v1.5
+Version: 2025-06-23 v1.6
 
 pdfTeX and luatex supports several color stacks. This
 package shows, how a separate color stack can be used for transparency,
@@ -11,7 +11,8 @@ but without support for page breaks.
 
 ## Copyright (C)
 *    2007 Heiko Oberdiek
-*    2016-2022 Oberdiek Package Support Group
+*    2016-2025 Oberdiek Package Support Group
+
 
 ## Issues
 

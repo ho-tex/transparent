@@ -1,0 +1,11 @@
+% issue #3
+\input{regression-test}
+\documentclass{article}
+\usepackage{transparent}
+\usepackage{pgfrcs}
+\START
+\begin{document}
+\OMIT
+abc\texttransparent{0.3}{hello world}
+
+\end{document}

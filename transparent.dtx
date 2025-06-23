@@ -195,8 +195,8 @@ and the derived files
 % is fully transparent and 1 is opaque.
 % 
 % \section{Engine support}
-% If the PDF management is loaded by using \verb+\DocumentMetadata{}+ at the beginning
-% of the document the package makes use of \texttt{l3opacity} and
+% If the PDF management is loaded (e.g. by using \verb+\DocumentMetadata{}+ at the beginning
+% of the document) the package makes use of \texttt{l3opacity} and
 % can be used with all engines supported by \texttt{l3backend}.
 % But only with \pdfTeX\ and lua\TeX{} the transparency will also work across page break.
 % 
@@ -246,19 +246,10 @@ Hello World
 %    \end{macrocode}
 % Testing if the pdfmanagement is used
 %    \begin{macrocode}
-\@ifl@t@r\fmtversion{2022-06-01}
-  {
-    \IfDocumentMetadataTF {}{\RequirePackage{transparent-nometadata}}
-    \IfDocumentMetadataTF {}{\endinput}
-  }
-  {\RequirePackage{transparent-nometadata}}  
+\IfPDFManagementActiveF {\RequirePackage{transparent-nometadata}}
+\IfPDFManagementActiveF {\endinput}
 %    \end{macrocode}
 %    \begin{macrocode}
-\cs_if_exist:NF \opacity_select:n
- {
-   \RequirePackage{l3opacity}
- }  
-
 \NewDocumentCommand{\transparent} { m }
       {
        \opacity_select:n{\fp_eval:n{ min(max(0,#1),1) } }
